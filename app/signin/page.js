@@ -3,11 +3,11 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
+    
   const router = useRouter();
   const [form, setForm] = useState({ email: "", password: "" });
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
-
   const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
 
@@ -28,7 +28,7 @@ export default function LoginPage() {
       if (!res.ok) {
         setErrorMsg(data.message || "Login failed");
       } else {
-        router.push("/home"); // redirect after success
+        router.push("/dashboard"); // redirect after success
       }
     } catch (error) {
       setErrorMsg("Something went wrong");
