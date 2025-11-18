@@ -4,7 +4,7 @@ import { redirect } from "next/navigation";
 export default async function HomePage() {
 
    const sessionCookie = await cookies()
-  const token = sessionCookie.get("session_token)?.value
+  const token = sessionCookie.get("session_token")?.value
 
   if (!token) {
     redirect("/landing");
